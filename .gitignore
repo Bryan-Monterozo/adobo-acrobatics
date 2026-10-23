@@ -1,0 +1,58 @@
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.template
+.envrc
+secrets.local/
+*.local.key
+*.local.pem
+
+# Editor temporary and per-user state
+*.swp
+*.swo
+*~
+.idea/
+.vs/
+*.sublime-workspace
+
+# Local diagnostic output
+*.log
+/logs/
+
+## some
+.agents/
+.codicks/
+.history/
+
+# JavaScript / TypeScript dependencies and generated output
+node_modules/
+/dist/
+/build/
+/coverage/
+/.vite/
+/.cache/
+/playwright-report/
+/test-results/
+*.tsbuildinfo
+
+# Package-manager local caches; keep dependency lockfiles tracked
+/.npm/
+/.pnpm-store/
+/.yarn/cache/
+/.yarn/unplugged/
+/.yarn/install-state.gz
+
+# Add host-framework rules once selected.
+# Keep source, manifests, lockfiles, PDF test fixtures, WASM source assets,
+# safe configuration examples, and project plans tracked.
+# Do not ignore *.pdf or *.wasm globally.
