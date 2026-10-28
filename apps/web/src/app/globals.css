@@ -1,0 +1,91 @@
+:root {
+  color-scheme: light;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #283830;
+  background: #f5f4ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 280px;
+}
+
+.workspace {
+  width: min(100% - 3rem, 70rem);
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 7vw, 5.5rem);
+}
+
+.workspace-header {
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #53685b;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.intro {
+  margin: 0;
+  color: #5c665f;
+  line-height: 1.6;
+}
+
+.viewer-placeholder {
+  display: flex;
+  min-height: clamp(22rem, 52vh, 35rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  border: 1px dashed #b9c5b9;
+  border-radius: 1.25rem;
+  background: #fdfdf9;
+  text-align: center;
+}
+
+.document-icon {
+  flex-shrink: 0;
+  margin-bottom: 1.75rem;
+  color: #65836b;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+}
+
+h2 {
+  max-width: 28rem;
+  margin: 0.65rem 0 0;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.viewer-placeholder > p:last-child {
+  margin: 0.75rem 0 0;
+  color: #5c665f;
+  line-height: 1.6;
+}

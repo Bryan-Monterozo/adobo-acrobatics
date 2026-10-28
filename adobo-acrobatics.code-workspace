@@ -1,0 +1,41 @@
+{
+  "folders": [
+    {
+      "name": "Adobo Acrobatics",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 2,
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/.history": true,
+      "**/coverage": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "npm",
+        "script": "doctor",
+        "label": "Workspace: doctor",
+        "problemMatcher": []
+      },
+      {
+        "type": "npm",
+        "script": "check:workspace",
+        "label": "Workspace: check",
+        "problemMatcher": []
+      }
+    ]
+  }
+}

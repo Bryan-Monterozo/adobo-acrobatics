@@ -1,0 +1,38 @@
+{
+  "name": "@adobo/web",
+  "version": "0.0.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node ../../scripts/prepare-pdfium-asset.mjs",
+    "prebuild": "node ../../scripts/prepare-pdfium-asset.mjs",
+    "dev": "cross-env NEXT_TELEMETRY_DISABLED=1 next dev --webpack --hostname 127.0.0.1 --port 3000",
+    "build": "cross-env NEXT_TELEMETRY_DISABLED=1 next build --webpack",
+    "start": "cross-env ADOBO_ENGINE_CHECK=0 NEXT_TELEMETRY_DISABLED=1 next start --hostname 127.0.0.1 --port 3100",
+    "start:test": "cross-env ADOBO_ENGINE_CHECK=1 NEXT_TELEMETRY_DISABLED=1 next start --hostname 127.0.0.1 --port 3100",
+    "typecheck": "cross-env NEXT_TELEMETRY_DISABLED=1 next typegen && tsc --noEmit",
+    "test:unit": "vitest run",
+    "test:unit:list": "vitest list --filesOnly --passWithNoTests",
+    "browsers:install": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium firefox webkit",
+    "test:browser": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 ADOBO_ENGINE_CHECK=1 playwright test",
+    "test:browser:release": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 ADOBO_ENGINE_CHECK=0 playwright test",
+    "test:browser:subpath": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 ADOBO_ENGINE_CHECK=1 NEXT_PUBLIC_BASE_PATH=/adobo-test playwright test"
+  },
+  "dependencies": {
+    "@embedpdf/pdfium": "2.15.1",
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/emscripten": "1.41.6",
+    "@types/node": "24.10.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "cross-env": "10.1.0",
+    "typescript": "6.0.3",
+    "vite": "8.0.4",
+    "vitest": "5.0.5"
+  }
+}

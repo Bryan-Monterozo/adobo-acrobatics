@@ -24,26 +24,34 @@ secrets.local/
 .idea/
 .vs/
 *.sublime-workspace
+.history/
+.vscode/
 
 # Local diagnostic output
 *.log
 /logs/
+/docs/
 
-## some
-.agents/
-.codicks/
-.history/
+# 
+/.agent/
+/.codicks/
 
-# JavaScript / TypeScript dependencies and generated output
+# Project dependencies and generated application/test output
 node_modules/
+.next/
+next-env.d.ts
 /dist/
 /build/
-/coverage/
-/.vite/
-/.cache/
-/playwright-report/
-/test-results/
+coverage/
+.vite/
+.cache/
+playwright-report/
+test-results/
+blob-report/
 *.tsbuildinfo
+
+# Rebuilt and integrity-verified by apps/web predev/prebuild; preserve all other WASM files.
+/apps/web/public/pdfium/2.15.1/pdfium.wasm
 
 # Package-manager local caches; keep dependency lockfiles tracked
 /.npm/
@@ -52,7 +60,5 @@ node_modules/
 /.yarn/unplugged/
 /.yarn/install-state.gz
 
-# Add host-framework rules once selected.
-# Keep source, manifests, lockfiles, PDF test fixtures, WASM source assets,
-# safe configuration examples, and project plans tracked.
-# Do not ignore *.pdf or *.wasm globally.
+# Keep source, manifests, lockfiles, safe configuration examples,
+# PDF fixtures and WASM source assets tracked.

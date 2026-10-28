@@ -1,0 +1,27 @@
+{
+  "name": "adobo-acrobatics",
+  "version": "0.0.0-alpha.1",
+  "private": true,
+  "description": "Development workspace for Adobo Acrobatics",
+  "type": "module",
+  "packageManager": "npm@12.2.1",
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "npm": ">=11.0.0 <13"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "check:workspace": "node scripts/doctor.mjs --workspace-only",
+    "fixtures:pdf": "cross-env TZ=UTC node scripts/generate-pdf-fixtures.mjs"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "0.1.80",
+    "cross-env": "10.1.0",
+    "pdfjs-dist": "5.4.296",
+    "pdfkit": "0.17.2"
+  }
+}
