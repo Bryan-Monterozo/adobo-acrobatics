@@ -50,10 +50,10 @@ export default function PageNavigation({
         <input id="viewer-page-entry" data-testid="page-entry"
           type="text" inputMode="numeric" autoComplete="off"
           value={entry} aria-invalid={invalid}
-          aria-describedby={invalid ? "page-entry-error" : undefined}
+          aria-describedby={invalid ? "page-count-total page-entry-error" : "page-count-total"}
           onChange={event => { setEntry(event.target.value); setInvalid(false); }}
           style={{ width: "4.5rem", padding: "0.35rem", font: "inherit" }} />
-        <span>of {pageCount}</span>
+        <span id="page-count-total">of {pageCount}</span>
         <button type="submit" data-testid="page-go">Go</button>
       </form>
       <button type="button" data-testid="page-next"

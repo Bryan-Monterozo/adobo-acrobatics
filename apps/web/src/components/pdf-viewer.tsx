@@ -190,6 +190,12 @@ export default function PdfViewer() {
   return (
     <section className="viewer-placeholder" aria-labelledby="viewer-heading"
       style={{ gap: "1.25rem", padding: "2rem 1.5rem" }}>
+      <style>{`
+        .viewer-placeholder :is(button, input):focus-visible {
+          outline: 3px solid #185d45;
+          outline-offset: 3px;
+        }
+      `}</style>
       <p className="eyebrow">Private PDF viewer</p>
       <h2 id="viewer-heading">Open a local PDF</h2>
       <PdfFileInput onSelect={choose} />
@@ -197,8 +203,10 @@ export default function PdfViewer() {
         style={{ justifySelf: "center", font: "inherit", padding: "0.4rem 1rem" }}>
         Close document
       </button>
-      <p data-testid="viewer-state" role="status" aria-live="polite"
-        aria-busy={state.phase === "opening" || state.phase === "rendering"}
+      <p data-testid="viewer-state"
+        role={state.phase === "error" ? "alert" : "status"}
+        aria-live={state.phase === "error" ? "assertive" : "polite"}
+        aria-atomic="true"
         style={{ color: state.phase === "error" ? "#9c3434" : "#53685b", margin: 0 }}>
         {state.phase === "error" ? `Error: ${state.message}` : state.message}
       </p>
@@ -220,13 +228,18 @@ export default function PdfViewer() {
           Page {state.pageNumber} of {state.pageCount}
         </p>
       )}
-      <div aria-label="Document page" style={{
+      <div aria-label="Document page"
+        aria-busy={state.phase === "opening" || state.phase === "rendering"}
+        style={{
         maxWidth: "100%", maxHeight: "65vh", overflow: "auto",
         display: state.phase === "ready" ? "block" : "none",
         border: "1px solid #c4ccc3", background: "#fff",
       }}>
         <canvas ref={canvasRef} data-testid="viewer-canvas"
-          aria-label="First page of the PDF" role="img"
+          aria-label={state.phase === "ready" || state.phase === "rendering"
+            ? `Visual preview of page ${state.pageNumber} of ${state.pageCount}; PDF text is not available in this image`
+            : "PDF page preview"}
+          role="img"
           style={{ display: "block", maxWidth: "100%" }} />
       </div>
     </section>
